@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Page</title>
+  <link rel="stylesheet" href="css/package/dist/tailwind.css">
+  <link rel="icon" type="image/jpg" href="logo.jpg"> <!-- Logo in the tab bar -->
+  <link rel="stylesheet" href="css/font.css">
+
+  <style>
+    /* Pop-up styles */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: none; /* Initially hidden */
+      z-index: 50;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      text-align: center;
+    }
+
+    .popup.active {
+      display: block; /* Show pop-up when active */
+    }
+
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none; /* Initially hidden */
+      z-index: 40;
+    }
+
+    .popup-overlay.active {
+      display: block; /* Show overlay when active */
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100">
+  <!-- Header -->
+  <body class="bg-gray-100" dir="rtl">
+    <main>
+    <!-- Header -->
+    <header class="bg-white shadow">
+      <div class="container flex items-center justify-center">
+        <!-- Logo -->
+        <img src="logo.jpg" alt="SMS Logo" class="w-24 mr-4"> <!-- Page logo -->
+        <br>
+        <!-- Text -->
+        <h1  class="text-2xl font-bold text-gray-800">
+            نظام إدارة المدرسة (SMS)
+        </h1>
+      </div>
+    </header>
+    </main>
+  </body>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8">
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col md:flex-row">
+      <!-- Left Section (Registration Form) -->
+      <div class="w-full md:w-1/2 p-6 border-r">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">تسجيل</h2>
+        <form id="registrationForm" class="space-y-4">
+          <!-- Name -->
+          <div>
+            <label for="name" class="block text-gray-700 font-medium mb-2">الاسم</label>
+            <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="ادخل اسمك" required>
+          </div>
+
+          <!-- Governorate -->
+          <div>
+            <label for="governorate" class="block text-gray-700 font-medium mb-2">المحافظة</label>
+            <input type="text" id="governorate" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="ادخل اسم المحافظة" required>
+          </div>
+
+          <!-- School Name -->
+          <div>
+            <label for="schoolName" class="block text-gray-700 font-medium mb-2">اسم المدرسة</label>
+            <input type="text" id="schoolName" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="ادخل اسم المدرسة" required>
+          </div>
+
+          <!-- Registration Button -->
+          <div>
+            <button id="registerButton" type="button" disabled class="w-full bg-gray-400 text-white px-6 py-3 rounded-lg font-semibold transition duration-300 cursor-not-allowed">
+              سجل
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right Section (Image and Information) -->
+      <div class="w-full md:w-1/2 p-6 flex flex-col items-center justify-center text-center">
+        <img src="logo.jpg" alt="Site Preview" class="w-full h-auto max-w-xs mb-4">
+        <h3 class="text-xl font-bold text-gray-800 mb-2">مرحباً بكم في نظام ادارة المدرسة</h3>
+        <p class="text-gray-600">
+            نظام إدارة المدارس (SMS) هو الحل الأمثل لإدارة أنشطة المدرسة بكفاءة. انضم إلينا لتجربة مستقبل إدارة المدارس!
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <main>
+    <!-- Pop-up (Success Message) -->
+    <div class="popup-overlay" id="popupOverlay"></div>
+    <div class="popup" id="popup">
+      <!-- Centered Image Container -->
+      <div class="flex justify-center items-center mb-4">
+        <img src="check.png" alt="Success" class="w-24"> <!-- Adjust width as needed -->
+      </div>
+      <h2 class="text-2xl font-bold text-gray-800 mb-2 text-center">تم التسجيل</h2>
+      <p class="text-gray-600 text-center">لقد قمت بتسجيل بنجاح !</p>
+      <div class="flex justify-center">
+        <button onclick="location.href='download.html'" id="closePopup" class="mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+          حسناً
+        </button>
+      </div>
+    </div>
+  </main>
+
+  
+  <script>
+    // Form Validation and Button Enable/Disable Logic
+    const nameInput = document.getElementById('name');
+    const governorateInput = document.getElementById('governorate');
+    const schoolNameInput = document.getElementById('schoolName');
+    const registerButton = document.getElementById('registerButton');
+
+    function validateForm() {
+      if (nameInput.value && governorateInput.value && schoolNameInput.value) {
+        registerButton.disabled = false;
+        registerButton.classList.remove('bg-gray-400', 'cursor-not-allowed');
+        registerButton.classList.add('bg-blue-600', 'hover:bg-blue-700', 'cursor-pointer');
+      } else {
+        registerButton.disabled = true;
+        registerButton.classList.add('bg-gray-400', 'cursor-not-allowed');
+        registerButton.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'cursor-pointer');
+      }
+    }
+
+    nameInput.addEventListener('input', validateForm);
+    governorateInput.addEventListener('input', validateForm);
+    schoolNameInput.addEventListener('input', validateForm);
+
+    // Pop-up Logic
+    const popup = document.getElementById('popup');
+    const popupOverlay = document.getElementById('popupOverlay');
+    const closePopup = document.getElementById('closePopup');
+
+    registerButton.addEventListener('click', () => {
+      popup.classList.add('active');
+      popupOverlay.classList.add('active');
+    });
+
+    closePopup.addEventListener('click', () => {
+      popup.classList.remove('active');
+      popupOverlay.classList.remove('active');
+    });
+
+    popupOverlay.addEventListener('click', () => {
+      popup.classList.remove('active');
+      popupOverlay.classList.remove('active');
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تحميل</title>
+  <link rel="stylesheet" href="css/package/dist/tailwind.css">
+  <link rel="icon" type="image/jpg" href="logo.jpg"> <!-- Logo in the tab bar -->
+  <link rel="stylesheet" href="css/font.css">
+
+  <style>
+    /* Styling for the Telegram icon container */
+    .telegram-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #0088cc;
+      color: white;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      gap: 1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .telegram-container:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .telegram-icon {
+      font-size: 2rem;
+    }
+  </style>
+</head>
+
+
+<body class="bg-gray-100" dir="rtl">
+    <main>
+    <!-- Header -->
+    <body class="bg-gray-100" dir="rtl">
+      <main>
+      <!-- Header -->
+      <header class="bg-white shadow">
+        <div class="container flex items-center justify-center">
+          <!-- Logo -->
+          <img src="logo.jpg" alt="SMS Logo" class="w-24 mr-4"> <!-- Page logo -->
+          <br>
+          <!-- Text -->
+          <h1  class="text-2xl font-bold text-gray-800">
+              نظام إدارة المدرسة (SMS)
+          </h1>
+        </div>
+      </header>
+      </main>
+    </body>
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- System Download Container -->
+      <div class="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center text-center">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">تنزيل النظام</h2>
+        <p class="text-gray-600 mb-6">
+            يرجى احترام حقوق المطور وعدم إعادة نشر النظام أو تعديله.
+        </p>
+        <a href="sms.zip" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+            تنزيل النظام
+        </a>
+      </div>
+
+      <!-- System Guide Download Container -->
+      <div class="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center text-center">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">دليل النظام</h2>
+        <p class="text-gray-600 mb-6">
+            يساعدك هذا الدليل على فهم النظام بشكل أفضل وكيفية العمل معه.
+        </p>
+        <a href="system-guide.pdf" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+            تنزيل الدليل
+        </a>
+      </div>
+    </div>
+
+    <!-- Join Us Container -->
+    <div class="mt-8">
+      <div class="telegram-container">
+        <span class="telegram-icon"> <img src="telegram.png" width="70px" alt=""></span>
+        <div>
+          <h2 class="text-xl font-bold">Join Us</h2>
+          <p class="text-sm">
+            يرجى الانضمام إلى قناتنا على Telegram لطرح الأسئلة وحل المشكلات وتطوير النظام.
+          </p>
+        </div>
+        <a href="https://t.me/school_sms" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold shadow-md hover:bg-gray-100 transition duration-300">
+            انضم إلى تيليجرام
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white shadow mt-8" dir="ltr">
+    <div class="container mx-auto px-4 py-6 text-center">
+      <p class="text-gray-600">&copy; نظام إدارة المدارس ٢٠٢٥ (SMS) جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+</body>
+</main>
+</html>
